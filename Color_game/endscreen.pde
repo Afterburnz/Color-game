@@ -1,0 +1,3 @@
+void endscreen() {
+  background(white);
+}
