@@ -5,4 +5,22 @@ void intro(){
   f=f+1;
   if(frameCount % 2 == 0) f = f+1;
   if(f == numberOfFrames) f = 0;
+  fill(white);
+  textAlign(CENTER);
+  textSize(60);
+  text("Press me to start", 400,280);
+  
+  if (dist(400, 400, mouseX, mouseY) < 75) {
+    stroke(black);
+    strokeWeight(5);
+    fill(84, 192, 255);
+  } else {
+    stroke(black);
+    strokeWeight(5);
+    fill(white);
+  }
+  circle(400, 400, 150);
+  fill(black);
+
+
 }
