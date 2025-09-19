@@ -1,9 +1,11 @@
 color white= #ffffff;
 color black= #000000;
+color gray=#808080;
 color red = #fa3243;
 color green = #78ff59;
 color yellow = #ffed69;
 color blue = #57f4ff;
+color heliotrope =#df73ff;
 boolean matching = true;
 import processing.sound.*;
 SoundFile fail;
@@ -13,6 +15,7 @@ PImage[] gif;
 int f;
 int numberOfFrames = 90;
 int mode =0;
+float d = 0;
 final int intro =0;
 final int game = 1;
 final int endscreen = 2;
@@ -29,7 +32,7 @@ void setup() {
   PFont mono;
   mono = createFont("andalemo.ttf", 128);
   textFont(mono);
-
+  beginning();
 
   gif = new PImage[numberOfFrames];
 
@@ -53,10 +56,15 @@ void draw() {
 void mouseReleased() {
   if (dist(400, 400, mouseX, mouseY)<75 && mode == 0) {
     mode = mode+1;
+
+    score = 0;
+    d = 0;
   }
   if (mode ==2) {
     mode = 0;
   }
+
+
 
   if (matching == true && dist(600, 600, mouseX, mouseY)<75 && mode == 1)
   {
@@ -76,18 +84,19 @@ void mouseReleased() {
 }
 
 void beginning() {
+  d = 0;
   if (random(0, 1) > 0.5) {
     matching = true;
   } else {
     matching = false;
   }
-
+  randomText = int(random(0, 8));
   if (matching == true) {
     randomColor = randomText;
-    if (matching == false) {
-      while (randomColor == randomText) {
-        randomText = int(random(0, 8));
-      }
+  }
+  if (matching == false) {
+    while (randomColor == randomText) {
+      randomColor = int(random(0, 8));
     }
   }
 }

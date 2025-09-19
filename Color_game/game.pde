@@ -1,4 +1,5 @@
 int score = 0;
+int highScore = 0;
 int randomColor = int(random(0, 8));
 int randomText = int(random(0, 8));
 void game() {
@@ -38,9 +39,30 @@ void game() {
   text("Your score is " + score, 150, 60);
 
   fill(colors[randomColor]);
-  textSize(50);
+  textSize(75);
   textAlign(CENTER);
-  text(texts[randomText], 400, 250);
+  text(texts[randomText], 400, 300);
+
+  if (score>highScore) {
+    highScore = score;
+  }
+
+  fill(white);
+  stroke(gray);
+  circle(650, 100, 150);
+
+  timer();
+}
 
 
+void timer() {
+  fill(heliotrope);
+
+  noStroke();
+  circle(650, 100, d);
+  d=d+1.5;
+
+  if(d>150){
+    mode = 2;
+  }
 }
