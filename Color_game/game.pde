@@ -4,8 +4,30 @@ int randomColor = int(random(0, 8));
 int randomText = int(random(0, 8));
 void game() {
   background(black);
+  fill(white);
+  rect(400,0,400,800);
+  
+  int w = 0;
+  int b = 0;
+  int y1 = 0;
+  int y2 = 100;
+  
+  while(w < 8){
+    fill(white);
+    rect(0,y1,400,50);
+    y1=y1+100;
+    w++;
+    
+  }
+  while(b < 8){
+    fill(black);
+    rect(400,y2,400,50);
+    y2=y2+100;
+    b++;
+    
+  }
 
-
+  rect(0,250,800,300);
   if (dist(200, 600, mouseX, mouseY) < 75) {
     stroke(white);
     strokeWeight(5);
@@ -41,7 +63,7 @@ void game() {
   fill(colors[randomColor]);
   textSize(75);
   textAlign(CENTER);
-  text(texts[randomText], 400, 300);
+  text(texts[randomText], 400, 350);
 
   if (score>highScore) {
     highScore = score;
