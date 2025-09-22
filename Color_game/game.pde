@@ -85,6 +85,7 @@ void timer() {
   d=d+1.5;
 
   if(d>150){
+    fail.play();
     mode = 2;
   }
 }

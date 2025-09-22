@@ -69,16 +69,21 @@ void mouseReleased() {
   if (matching == true && dist(600, 600, mouseX, mouseY)<75 && mode == 1)
   {
     score++;
+    success.play();
     beginning();
   } else if (matching == false && dist(200, 600, mouseX, mouseY)<75 && mode == 1)
   {
     score++;
+    success.play();
     beginning();
   } else if (matching == true && dist(200, 600, mouseX, mouseY)<75 && mode == 1)
   {
+    fail.play();
+    
     mode=2;
   } else if (matching == false && dist(600, 600, mouseX, mouseY)<75 && mode == 1)
   {
+    fail.play();
     mode=2;
   }
 }
